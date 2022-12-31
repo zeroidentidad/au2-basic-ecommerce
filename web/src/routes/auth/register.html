@@ -1,0 +1,13 @@
+<form class="container form mt-5" submit.trigger="submit()">
+  <h2 class="h3 mb-3 font-weight-normal">Nueva cuenta</h2>
+  <label for="inputUsername" class="sr-only">Usuario:</label>
+  <input type="text" id="inputUsername" class="form-control control" placeholder="username" value.bind="username" />
+
+  <label for="inputPassword" class="sr-only">Contraseña:</label>
+  <input type="password" id="inputPassword" class="form-control control" placeholder="password" value.bind="password" />
+
+  <label for="inputPassword2" class="sr-only">Confirmar contraseña:</label>
+  <input type="password" id="inputPassword2" class="form-control control" placeholder="repetir password" value.bind="password2" />
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+</form>

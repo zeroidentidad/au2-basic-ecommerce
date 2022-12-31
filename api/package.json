@@ -1,0 +1,16 @@
+{
+  "name": "webstore-api",
+  "version": "1.0.0",
+  "description": "The server backing the webstore.",
+  "main": "api.js",
+  "author": "zero",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.0"
+  }
+}

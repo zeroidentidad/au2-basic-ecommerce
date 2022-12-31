@@ -1,0 +1,126 @@
+<div class="container mt-5">
+    <div class="row" if.bind="auth.isLoggedIn">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Tu carrito</span>
+                <span class="badge badge-secondary badge-pill">${totalItems}</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed" repeat.for="product of cart">
+                    <div>
+                        <h6 class="my-0">${product.title}</h6>
+                        <small class="text-muted">Quantity: ${product.quantity}</small>
+                    </div>
+                    <span class="text-muted">$${subTotals(product)}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total: </span>
+                    <strong>$${total}</strong>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Información de envio</h4>
+            <form class="needs-validation" submit.trigger="submit()" novalidate="">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" class="form-control" id="firstName"
+                            value.bind="details.firstName & validate">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Apellido</label>
+                        <input type="text" class="form-control" id="lastName" value.bind="details.lastName & validate">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com"
+                            value.bind="details.email & validate">
+                    </div>
+                    <div class="col-md-7 mb-3">
+                        <label for="address">Dirección principal</label>
+                        <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+                            value.bind="details.address & validate">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7 mb-3">
+                        <label for="address2">Dirección secundaria <span class="text-muted">(Optional)</span></label>
+                        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"
+                            value.bind="details.address2 & validate">
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <label for="country">País</label>
+                        <select class="custom-select d-block w-100" id="country" value.bind="details.country & validate">
+                            <option value="">Seleccionar...</option>
+                            <option>Mexico</option>
+                            <option>Estados Unidos</option>
+                            <option>Calquier otro lugar</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="state">Estado</span></label>
+                        <input type="text" class="form-control" id="state" placeholder="California"
+                            value.bind="details.state & validate">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="zip">Código postal</label>
+                        <input type="text" class="form-control" id="zip" value.bind="details.zip & validate">
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <h4 class="mb-3">Pago</h4>
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
+                            value.bind="details.paymentType & validate">
+                        <label class="custom-control-label" for="credit">Tarjeta</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" disabled>
+                        <label class="custom-control-label" for="paypal">Paypal</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-name">Nombre en tarjeta</label>
+                        <input type="text" class="form-control" id="cc-name" value.bind="details.ccName & validate">
+                        <small class="text-muted">Nombre completo mostrado en la tarjeta</small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-number">Número de tarjeta</label>
+                        <input type="text" class="form-control" id="cc-number" value.bind="details.ccNumber & validate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-expiration">Vencimiento</label>
+                        <input type="text" class="form-control" id="cc-expiration"
+                            value.bind="details.ccExpiration & validate">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-cvv">CVC</label>
+                        <input type="text" class="form-control" id="cc-cvv" value.bind="details.ccCvv & validate">
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary" type="submit" disabled.bind="processing">Realizar pedido</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row" else>
+        <p><strong>Solo usuarios conectados pueden hacer checkout.</strong> Por favor <a load="/login">inicie sesión</a> o <a load="/register">regístrese</a> para continuar.</p>
+    </div>    
+</div>

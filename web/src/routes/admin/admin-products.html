@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Administrar productos</h3>
+      <ul>
+        <li repeat.for="product of products"><a load="../admin-product(${product.id})">${product.title}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

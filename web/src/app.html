@@ -1,0 +1,15 @@
+<!-- custom components -->
+<import from="./components/nav-bar/nav-bar"></import>
+<import from="./components/search/search"></import>
+<import from="./components/foo-ter/foo-ter"></import>
+<!-- default route component -->
+<import from="./routes/home/home"></import>
+<!-- default missing route component -->
+<import from="./routes/missing"></import>
+
+<search showing.bind="showSearch"></search>
+<nav-bar></nav-bar>
+
+<au-viewport name="main" default="home" fallback="missing"></au-viewport>
+
+<foo-ter></foo-ter>
