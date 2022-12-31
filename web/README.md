@@ -28,4 +28,4 @@ root_folder/foo.12345.js
 
 ## Rest Api for this project
 
-- [github.com/zeroidentidad/javascript_fullstack/backend/webstore_api](https://github.com/zeroidentidad/javascript_fullstack/tree/master/backend/webstore_api)
+- [github.com/zeroidentidad/au2-basic-ecommerce/api](https://github.com/zeroidentidad/au2-basic-ecommerce/tree/main/api)
