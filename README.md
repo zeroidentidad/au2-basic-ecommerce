@@ -1,2 +1,3 @@
-# au2-basic-ecommerce
-Aurelia 2 basic ecommerce and simple Node Rest API
+# au2-basic-ecommerce template
+
+Aurelia 2 basic web ecommerce & simple Node Rest API
